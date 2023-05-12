@@ -230,4 +230,5 @@ CMakeFiles/CmdLineTextEditor.dir/src/main.cpp.o: \
   /Library/Developer/CommandLineTools/usr/bin/../include/c++/v1/stack \
   /Library/Developer/CommandLineTools/usr/bin/../include/c++/v1/deque \
   /Library/Developer/CommandLineTools/usr/bin/../include/c++/v1/__split_buffer \
-  /Library/Developer/CommandLineTools/usr/bin/../include/c++/v1/iomanip
+  /Library/Developer/CommandLineTools/usr/bin/../include/c++/v1/iomanip \
+  /Library/Developer/CommandLineTools/usr/bin/../include/c++/v1/vector
