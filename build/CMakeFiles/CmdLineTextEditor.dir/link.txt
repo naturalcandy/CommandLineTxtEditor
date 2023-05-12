@@ -1,0 +1,1 @@
+/usr/bin/c++ CMakeFiles/CmdLineTextEditor.dir/src/main.cpp.o -o CmdLineTextEditor 
