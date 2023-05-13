@@ -1,3 +1,0 @@
-/home/nader/Projects/CommandLineTxtEditor/build/CMakeFiles/CmdLineTextEditor.dir
-/home/nader/Projects/CommandLineTxtEditor/build/CMakeFiles/edit_cache.dir
-/home/nader/Projects/CommandLineTxtEditor/build/CMakeFiles/rebuild_cache.dir
