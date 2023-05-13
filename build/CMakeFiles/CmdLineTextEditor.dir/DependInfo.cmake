@@ -8,7 +8,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
-  "/Users/nolawigerawork/documents/projects/CommandLineTxtEditor/src/main.cpp" "CMakeFiles/CmdLineTextEditor.dir/src/main.cpp.o" "gcc" "CMakeFiles/CmdLineTextEditor.dir/src/main.cpp.o.d"
+  "/home/nader/Projects/CommandLineTxtEditor/src/main.cpp" "CMakeFiles/CmdLineTextEditor.dir/src/main.cpp.o" "gcc" "CMakeFiles/CmdLineTextEditor.dir/src/main.cpp.o.d"
   )
 
 # Targets to which this target links which contain Fortran sources.
