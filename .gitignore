@@ -1,0 +1,17 @@
+# Ignore all build directories
+/build/
+
+# Ignore all log files
+*.log
+
+# Ignore all temporary files
+*~
+*.swp
+*.swo
+.DS_Store
+
+# Ignore IDE specific files
+.idea/
+*.user
+*.suo
+*.sdf
