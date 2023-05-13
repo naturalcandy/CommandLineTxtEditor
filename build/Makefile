@@ -129,6 +129,30 @@ CmdLineTextEditor/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/CmdLineTextEditor.dir/build.make CMakeFiles/CmdLineTextEditor.dir/build
 .PHONY : CmdLineTextEditor/fast
 
+src/TextBuffer.o: src/TextBuffer.cpp.o
+.PHONY : src/TextBuffer.o
+
+# target to build an object file
+src/TextBuffer.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/CmdLineTextEditor.dir/build.make CMakeFiles/CmdLineTextEditor.dir/src/TextBuffer.cpp.o
+.PHONY : src/TextBuffer.cpp.o
+
+src/TextBuffer.i: src/TextBuffer.cpp.i
+.PHONY : src/TextBuffer.i
+
+# target to preprocess a source file
+src/TextBuffer.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/CmdLineTextEditor.dir/build.make CMakeFiles/CmdLineTextEditor.dir/src/TextBuffer.cpp.i
+.PHONY : src/TextBuffer.cpp.i
+
+src/TextBuffer.s: src/TextBuffer.cpp.s
+.PHONY : src/TextBuffer.s
+
+# target to generate assembly for a file
+src/TextBuffer.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/CmdLineTextEditor.dir/build.make CMakeFiles/CmdLineTextEditor.dir/src/TextBuffer.cpp.s
+.PHONY : src/TextBuffer.cpp.s
+
 src/main.o: src/main.cpp.o
 .PHONY : src/main.o
 
@@ -162,6 +186,9 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... CmdLineTextEditor"
+	@echo "... src/TextBuffer.o"
+	@echo "... src/TextBuffer.i"
+	@echo "... src/TextBuffer.s"
 	@echo "... src/main.o"
 	@echo "... src/main.i"
 	@echo "... src/main.s"

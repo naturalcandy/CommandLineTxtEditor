@@ -1,4 +1,6 @@
 file(REMOVE_RECURSE
+  "CMakeFiles/CmdLineTextEditor.dir/src/TextBuffer.cpp.o"
+  "CMakeFiles/CmdLineTextEditor.dir/src/TextBuffer.cpp.o.d"
   "CMakeFiles/CmdLineTextEditor.dir/src/main.cpp.o"
   "CMakeFiles/CmdLineTextEditor.dir/src/main.cpp.o.d"
   "CmdLineTextEditor"

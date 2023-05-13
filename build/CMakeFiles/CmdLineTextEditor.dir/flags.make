@@ -4,7 +4,7 @@
 # compile CXX with /usr/bin/c++
 CXX_DEFINES = 
 
-CXX_INCLUDES = -I/home/nader/Projects/CommandLineTxtEditor/src/include
+CXX_INCLUDES = -I/home/nader/Projects/CommandLineTxtEditor/include
 
 CXX_FLAGS = -std=gnu++11
 

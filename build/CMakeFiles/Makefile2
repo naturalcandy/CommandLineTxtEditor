@@ -81,12 +81,12 @@ clean: CMakeFiles/CmdLineTextEditor.dir/clean
 CMakeFiles/CmdLineTextEditor.dir/all:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/CmdLineTextEditor.dir/build.make CMakeFiles/CmdLineTextEditor.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/CmdLineTextEditor.dir/build.make CMakeFiles/CmdLineTextEditor.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/nader/Projects/CommandLineTxtEditor/build/CMakeFiles --progress-num=1,2 "Built target CmdLineTextEditor"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/nader/Projects/CommandLineTxtEditor/build/CMakeFiles --progress-num=1,2,3 "Built target CmdLineTextEditor"
 .PHONY : CMakeFiles/CmdLineTextEditor.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/CmdLineTextEditor.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/nader/Projects/CommandLineTxtEditor/build/CMakeFiles 2
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/nader/Projects/CommandLineTxtEditor/build/CMakeFiles 3
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/CmdLineTextEditor.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/nader/Projects/CommandLineTxtEditor/build/CMakeFiles 0
 .PHONY : CMakeFiles/CmdLineTextEditor.dir/rule

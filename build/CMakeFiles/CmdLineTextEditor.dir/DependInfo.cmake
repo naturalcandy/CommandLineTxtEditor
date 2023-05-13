@@ -8,6 +8,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
+  "/home/nader/Projects/CommandLineTxtEditor/src/TextBuffer.cpp" "CMakeFiles/CmdLineTextEditor.dir/src/TextBuffer.cpp.o" "gcc" "CMakeFiles/CmdLineTextEditor.dir/src/TextBuffer.cpp.o.d"
   "/home/nader/Projects/CommandLineTxtEditor/src/main.cpp" "CMakeFiles/CmdLineTextEditor.dir/src/main.cpp.o" "gcc" "CMakeFiles/CmdLineTextEditor.dir/src/main.cpp.o.d"
   )
 

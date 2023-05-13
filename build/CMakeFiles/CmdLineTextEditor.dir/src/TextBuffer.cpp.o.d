@@ -1,5 +1,5 @@
-CMakeFiles/CmdLineTextEditor.dir/src/main.cpp.o: \
- /home/nader/Projects/CommandLineTxtEditor/src/main.cpp \
+CMakeFiles/CmdLineTextEditor.dir/src/TextBuffer.cpp.o: \
+ /home/nader/Projects/CommandLineTxtEditor/src/TextBuffer.cpp \
  /usr/include/stdc-predef.h \
  /home/nader/Projects/CommandLineTxtEditor/src/../include/TextBuffer.h \
  /usr/include/c++/11/fstream /usr/include/c++/11/istream \

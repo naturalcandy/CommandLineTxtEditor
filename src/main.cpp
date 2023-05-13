@@ -1,65 +1,42 @@
-#include <iostream>
+#include "../include/TextBuffer.h"
+#include <cstdint>
 #include <fstream>
+#include <ios>
+#include <iostream>
 #include <string>
+#include <typeinfo>
 #include <vector>
 
-
-std::fstream edit_file(std::string file_name) {
-    std::fstream file; 
-    file.open(file_name, std::fstream::in | std::fstream::out);
-
-    if (!file) {
-      file = std::fstream(file_name, std::fstream::out);
-      std::cout << "File " << file_name << " does not exist. Created file.\n";
-    }
-    return file;
-}
-
-class TextBuffer {
-  public:
-    TextBuffer(std::fstream &file) {
-      char c;
-      while ((c = file.get()) != EOF) {
-        buffer.push_back(c);
-      }
-      cursor = buffer.begin();
-    }
-
-    std::vector<char> buffer;
-    std::vector<char>::iterator cursor;
-
-    void TextBufferInsert (char c) {
-      cursor = buffer.insert(cursor, c);
-      cursor = cursor + 1;
-    }
-
-    void TextBufferDelete() { return; }
-    void TextBufferSave(std::fstream &file) { 
-      for (auto &c : buffer) {
-        file.put(c);
-      }
-    }
-    void TextBufferLeft() { return; }
-    void TextBufferRight() { return; }
-    void TextBufferUp() { return;}
-    void TextBufferDown() { return; }
-};
-
-
 int main(int argc, char *argv[]) {
-    if (argc < 2) { 
-      std::cout << "Usage: ./main.cpp filename \n";
-      return 1;
-    }
+  if (argc < 2) {
+    std::cout << "Usage: ./CmdLineEditor filename \n";
+    return 1;
+  }
 
-    std::string file_name = (argv[1]);
-    std::fstream file = edit_file(file_name);
+  std::string file_name = (argv[1]);
+  std::ifstream in_file;
+  in_file.open(file_name);
+  if (!in_file) {
+    std::cout << "Error: file does not exist. Creating file '" << file_name
+              << "'.\n";
+    // Create the file
+    in_file.open(file_name);
+  }
 
-    TextBuffer *tb = new TextBuffer(file);
-    tb->TextBufferInsert('H');
-    tb->TextBufferSave(file);
+  // Insert characters into buffer
+  TextBuffer *tb = new TextBuffer(in_file);
+  in_file.close();
 
-    file.close();
-    delete tb;
-    return 0;
+  std::ofstream out_file;
+  out_file.open(file_name, std::ios::trunc);
+
+  tb->text_buf_insert('P');
+  tb->text_buf_insert('G');
+
+  // Write buffer to file
+  tb->text_buf_save(out_file);
+
+  delete tb;
+  out_file.close();
+  return 0;
 }

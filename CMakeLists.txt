@@ -13,12 +13,10 @@ set(SOURCE
 
 project(${PROJECT_NAME})
 
-add_executable(${PROJECT_NAME} ${SOURCE})
+add_executable(${PROJECT_NAME} ${SOURCE} "${SOURCE_DIR}/TextBuffer.cpp")
 
 target_include_directories(CmdLineTextEditor
       PUBLIC 
-      "${SOURCE_DIR}/include"
+      "${CMAKE_CURRENT_SOURCE_DIR}/include"
   )
-
-
 
