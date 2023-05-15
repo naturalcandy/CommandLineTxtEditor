@@ -30,8 +30,39 @@ int main(int argc, char *argv[]) {
   std::ofstream out_file;
   out_file.open(file_name, std::ios::trunc);
 
-  tb->text_buf_insert('P');
-  tb->text_buf_insert('G');
+  tb->text_buf_insert('1');
+  tb->text_buf_insert('2');
+  tb->text_buf_insert('\n');  
+  tb->text_buf_insert('1');
+  tb->text_buf_insert('2');
+  tb->text_buf_insert('3');
+  tb->text_buf_insert('4');
+  tb->text_buf_insert('\n');  
+  
+  tb->text_buf_left();
+  tb->text_buf_left();
+  tb->text_buf_left();
+  tb->text_buf_left();
+  tb->text_buf_left();
+  tb->text_buf_left();
+  tb->text_buf_left();
+  tb->text_buf_left();
+  tb->text_buf_left();
+  tb->text_buf_left();
+  tb->text_buf_left();
+  tb->text_buf_left();
+  tb->text_buf_left();      
+
+  tb->text_buf_right();
+  tb->text_buf_right();
+  tb->text_buf_right();
+  tb->text_buf_right();
+  tb->text_buf_right();
+  tb->text_buf_right();
+  tb->text_buf_up();
+  
+  tb->print_buffer_state();
+
 
   // Write buffer to file
   tb->text_buf_save(out_file);
