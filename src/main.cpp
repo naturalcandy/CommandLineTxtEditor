@@ -37,31 +37,12 @@ int main(int argc, char *argv[]) {
   tb->text_buf_insert('2');
   tb->text_buf_insert('3');
   tb->text_buf_insert('4');
-  tb->text_buf_insert('\n');  
-  
   tb->text_buf_left();
-  tb->text_buf_left();
-  tb->text_buf_left();
-  tb->text_buf_left();
-  tb->text_buf_left();
-  tb->text_buf_left();
-  tb->text_buf_left();
-  tb->text_buf_left();
-  tb->text_buf_left();
-  tb->text_buf_left();
-  tb->text_buf_left();
-  tb->text_buf_left();
-  tb->text_buf_left();      
-
-  tb->text_buf_right();
-  tb->text_buf_right();
-  tb->text_buf_right();
-  tb->text_buf_right();
-  tb->text_buf_right();
-  tb->text_buf_right();
-  tb->text_buf_up();
-  
   tb->print_buffer_state();
+  tb->text_buf_delete();
+  tb->print_buffer_state();
+  
+  
 
 
   // Write buffer to file

@@ -23,7 +23,9 @@ void TextBuffer::text_buf_insert(char c) {
   cursor++;
 }
 
-void TextBuffer::text_buf_delete() { return; }
+void TextBuffer::text_buf_delete() { 
+  buffer.erase(cursor);
+}
 
 void TextBuffer::text_buf_save(std::ofstream &file) {
   std::cout << "Writing:\n";
