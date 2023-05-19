@@ -6,6 +6,7 @@
 #include <string>
 #include <typeinfo>
 #include <vector>
+#include <SFML/Graphics.hpp>
 
 int main(int argc, char *argv[]) {
   if (argc < 2) {
@@ -23,32 +24,37 @@ int main(int argc, char *argv[]) {
     in_file.open(file_name);
   }
 
-  // Insert characters into buffer
+  
+  sf::RenderWindow window(sf::VideoMode(800, 600), "Text Editor");
+
   TextBuffer *tb = new TextBuffer(in_file);
   in_file.close();
 
   std::ofstream out_file;
   out_file.open(file_name, std::ios::trunc);
 
-  tb->text_buf_insert('1');
   tb->text_buf_insert('2');
-  tb->text_buf_insert('\n');  
-  tb->text_buf_insert('1');
   tb->text_buf_insert('2');
   tb->text_buf_insert('3');
   tb->text_buf_insert('4');
-  tb->text_buf_left();
+  tb->text_buf_insert('\n');  
+  tb->text_buf_insert('1');
+  tb->text_buf_insert('2');
   tb->print_buffer_state();
-  tb->text_buf_delete();
-  tb->print_buffer_state();
-  
-  
 
+  while (window.isOpen()) {
+    sf::Font font;
+    if (!font.loadFromFile("./arial.ttf"))
+      return EXIT_FAILURE;
+    sf::Text text(tb->text_buf_to_str(), font, 14);
 
-  // Write buffer to file
-  tb->text_buf_save(out_file);
+    window.clear();
+    window.draw(text);
+    window.display();
+
+  }
 
   delete tb;
   out_file.close();
-  return 0;
+  return EXIT_SUCCESS;
 }

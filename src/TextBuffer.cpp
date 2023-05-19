@@ -67,8 +67,6 @@ std::vector<char>::iterator TextBuffer::next_newline(std::vector<char>::iterator
   return iter;
 }
 
-// TODO: handle edge cases:
-// prev line is smaller than curr line
 void TextBuffer::text_buf_up() {
   // At first line in the buffer
   if (prev_newline(cursor) == buffer.begin() - 1) return;
@@ -76,8 +74,7 @@ void TextBuffer::text_buf_up() {
   auto dist {std::distance(prev_newline(cursor), cursor)};
   auto prev_prev_newline {prev_newline(prev_newline(cursor))};
 
-  auto prev_line_length = std::distance(prev_prev_newline, 
-                                          next_newline(prev_prev_newline));
+  auto prev_line_length = std::distance(prev_prev_newline, prev_newline(cursor));
   if (dist > prev_line_length) {
     cursor = prev_newline(cursor);
   } else {
@@ -92,10 +89,9 @@ void TextBuffer::text_buf_down() {
   auto dist {std::distance(prev_newline(cursor), cursor)};
   auto next_next_newline = next_newline(next_newline(cursor));
 
-  auto next_line_length = std::distance(prev_newline(next_next_newline),
-                                          next_next_newline);
+  auto next_line_length = std::distance(next_newline(cursor), next_next_newline);
   if (dist > next_line_length) {
-    cursor = next_next_newline;
+    cursor = next_next_newline; 
   } else {
     cursor = next_newline(cursor) + dist;
   }
@@ -114,3 +110,20 @@ void TextBuffer::print_buffer_state() {
   std::cout << ">\n";
   std::cout << "====== End buffer state =====\n";
 }
+
+std::string TextBuffer::text_buf_to_str() {
+  std::string output = "";
+  for (auto iter = buffer.begin(); iter != buffer.end(); iter++) {
+    if (iter == cursor) {
+      // TODO: remove brackets, simplify with iterator
+      // Add cursor implementation using graphics library
+      output.push_back('[');
+      output.push_back(*iter);
+      output.push_back(']');
+    } else {
+      output.push_back(*iter);
+    }
+  }
+  return output;
+}
+

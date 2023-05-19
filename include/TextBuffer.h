@@ -5,6 +5,7 @@
 
 #include <fstream>
 #include <vector>
+#include <string>
 
 class TextBuffer {
 public:
@@ -19,6 +20,7 @@ public:
   void text_buf_up();
   void text_buf_down();
   void print_buffer_state();
+  std::string text_buf_to_str();
 
 private:
   std::vector<char> buffer;
