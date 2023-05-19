@@ -25,7 +25,7 @@ int main(int argc, char *argv[]) {
   }
 
   
-  sf::RenderWindow window(sf::VideoMode(800, 600), "Text Editor");
+  sf::RenderWindow window(sf::VideoMode(800, 600, 32), "Text Editor");
 
   TextBuffer *tb = new TextBuffer(in_file);
   in_file.close();
@@ -46,7 +46,13 @@ int main(int argc, char *argv[]) {
     sf::Font font;
     if (!font.loadFromFile("./arial.ttf"))
       return EXIT_FAILURE;
-    sf::Text text(tb->text_buf_to_str(), font, 14);
+    sf::Text text(tb->text_buf_to_str(), font, 35);
+
+    sf::Event event;
+    while (window.pollEvent(event)) {
+      if (event.type == sf::Event::Closed)
+        window.close();
+    }
 
     window.clear();
     window.draw(text);
