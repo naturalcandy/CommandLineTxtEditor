@@ -24,6 +24,8 @@ void TextBuffer::text_buf_insert(char c) {
 }
 
 void TextBuffer::text_buf_delete() { 
+  if (cursor <= buffer.begin() || cursor > buffer.end()) return;
+  text_buf_left();
   buffer.erase(cursor);
 }
 
@@ -117,12 +119,14 @@ std::string TextBuffer::text_buf_to_str() {
     if (iter == cursor) {
       // TODO: remove brackets, simplify with iterator
       // Add cursor implementation using graphics library
-      output.push_back('[');
+      output.push_back('|');
       output.push_back(*iter);
-      output.push_back(']');
     } else {
       output.push_back(*iter);
     }
+  }
+  if (cursor == buffer.end()) {
+    output.append("|");
   }
   return output;
 }
