@@ -17,6 +17,7 @@ TextBuffer::TextBuffer(std::ifstream &file) {
 
 std::vector<char> buffer;
 std::vector<char>::iterator cursor;
+std::vector<char>::iterator select_cursor;
 
 void TextBuffer::text_buf_insert(char c) {
   cursor = buffer.insert(cursor, c);
@@ -99,6 +100,14 @@ void TextBuffer::text_buf_down() {
   }
 }
 
+
+void TextBuffer::update_select_cursor() {
+  //updates select cursor when we are not highlighting text
+  select_cursor = cursor;
+}
+
+
+
 void TextBuffer::print_buffer_state() {
   std::cout << "====== Printing buffer state =====\n";
   std::cout << "<";
@@ -120,10 +129,11 @@ std::string TextBuffer::text_buf_to_str() {
       // TODO: remove brackets, simplify with iterator
       // Add cursor implementation using graphics library
       output.push_back('|');
-      output.push_back(*iter);
-    } else {
-      output.push_back(*iter);
+    } 
+    if (iter == select_cursor) {
+      output.push_back('!');
     }
+    output.push_back(*iter);
   }
   if (cursor == buffer.end()) {
     output.append("|");

@@ -9,6 +9,8 @@
 #include <cctype>
 #include <SFML/Graphics.hpp>
 
+// TODO: add automatic window scrolling as you type past the edge of the scheen
+// TODO: add manual horizonatl and vertical scolling
 
 int main(int argc, char *argv[]) {
   if (argc < 2) {
@@ -99,9 +101,11 @@ int main(int argc, char *argv[]) {
         case sf::Keyboard::Enter:
           std::cout << "enter" << std::endl;
           tb->text_buf_insert('\n');
+          break;
         default:
           break;
         }
+        if (!sf::Keyboard::isKeyPressed(sf::Keyboard::LShift)) tb->update_select_cursor();
       }
     }
 
