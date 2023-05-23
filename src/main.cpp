@@ -72,10 +72,13 @@ int main(int argc, char *argv[]) {
       }
       else if (event.type == sf::Event::TextEntered 
                 && isprint(event.text.unicode)) {
+        // Insert text
         tb->text_buf_insert(static_cast<char>(event.text.unicode));
+        if (!sf::Keyboard::isKeyPressed(sf::Keyboard::LShift)) tb->update_select_cursor();
         buf_str = tb->text_buf_to_str();
       }
       else if (event.type == sf::Event::KeyPressed) {
+        // Move/Insert new line/Delete
         switch (event.key.code)
         {
         case sf::Keyboard::Up:
