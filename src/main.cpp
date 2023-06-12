@@ -1,4 +1,6 @@
 #include "../include/TextBuffer.h"
+#include <SFML/Graphics.hpp>
+#include <cctype>
 #include <cstdint>
 #include <fstream>
 #include <ios>
@@ -6,8 +8,6 @@
 #include <string>
 #include <typeinfo>
 #include <vector>
-#include <cctype>
-#include <SFML/Graphics.hpp>
 
 // TODO: add automatic window scrolling as you type past the edge of the scheen
 // TODO: add manual horizonatl and vertical scolling
@@ -28,7 +28,6 @@ int main(int argc, char *argv[]) {
     in_file.open(file_name);
   }
 
-  
   sf::RenderWindow window(sf::VideoMode(800, 600, 32), "Text Editor");
 
   TextBuffer *tb = new TextBuffer(in_file);
@@ -37,50 +36,29 @@ int main(int argc, char *argv[]) {
   std::ofstream out_file;
   out_file.open(file_name, std::ios::trunc);
 
-  tb->text_buf_insert('2');
-  tb->text_buf_insert('2');
-  tb->text_buf_insert('3');
-  tb->text_buf_insert('4');
-  tb->text_buf_insert('\n');  
-  tb->text_buf_insert('1');
-  tb->text_buf_insert('2');
-  tb->text_buf_left();
-  tb->text_buf_left();
-  tb->text_buf_left();
-  tb->text_buf_left();
-  tb->text_buf_left();
-  tb->text_buf_left();
-  tb->text_buf_left();
-  tb->text_buf_left();
-  tb->text_buf_left();
-  tb->text_buf_left();
-  tb->text_buf_left();
-
+  sf::Font font;
+  if (!font.loadFromFile("./arial.ttf"))
+    return EXIT_FAILURE;
 
   while (window.isOpen()) {
     std::string buf_str = tb->text_buf_to_str();
-    sf::Font font;
-    if (!font.loadFromFile("./arial.ttf"))
-      return EXIT_FAILURE;
-    sf::Text text(buf_str, font, 35);
+    sf::Text text(buf_str, font, 30);
 
     sf::Event event;
     while (window.pollEvent(event)) {
       if (event.type == sf::Event::Closed) {
         tb->text_buf_save(out_file);
         window.close();
-      }
-      else if (event.type == sf::Event::TextEntered 
-                && isprint(event.text.unicode)) {
+      } else if (event.type == sf::Event::TextEntered &&
+                 isprint(event.text.unicode)) {
         // Insert text
+        std::cout << static_cast<char>(event.text.unicode) << std::endl;
         tb->text_buf_insert(static_cast<char>(event.text.unicode));
-        if (!sf::Keyboard::isKeyPressed(sf::Keyboard::LShift)) tb->update_select_cursor();
-        buf_str = tb->text_buf_to_str();
-      }
-      else if (event.type == sf::Event::KeyPressed) {
+        if (!sf::Keyboard::isKeyPressed(sf::Keyboard::LShift))
+          tb->update_select_cursor();
+      } else if (event.type == sf::Event::KeyPressed) {
         // Move/Insert new line/Delete
-        switch (event.key.code)
-        {
+        switch (event.key.code) {
         case sf::Keyboard::Up:
           std::cout << "up" << std::endl;
           tb->text_buf_up();
@@ -108,7 +86,8 @@ int main(int argc, char *argv[]) {
         default:
           break;
         }
-        if (!sf::Keyboard::isKeyPressed(sf::Keyboard::LShift)) tb->update_select_cursor();
+        if (!sf::Keyboard::isKeyPressed(sf::Keyboard::LShift))
+          tb->update_select_cursor();
       }
     }
 
